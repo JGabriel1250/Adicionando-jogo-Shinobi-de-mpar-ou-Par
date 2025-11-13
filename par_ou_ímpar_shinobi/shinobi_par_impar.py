@@ -1,6 +1,7 @@
 from tkinter import *
 from consatantes import *
 from calculo_par_impar import *
+import random
 
 raiz = Tk()
 
@@ -71,7 +72,7 @@ class janela():
                                     fg=azul2, font=fonte2, pady=20)
         self.rb_impar.pack(side=LEFT)
 
-        self.lb3 = Label(self.fr5, text='Número de 1 a 10', bg=cinza1, fg=azul2, font=fonte3, width=15, pady=20)
+        self.lb3 = Label(self.fr5, text='Número de 0 a 10', bg=cinza1, fg=azul2, font=fonte3, width=15, pady=20)
         self.lb3.pack(side=LEFT)
 
         self.num = Entry(self.fr5, width=3, font=fonte3)
@@ -79,16 +80,73 @@ class janela():
 
         self.bt_jogar = Button(self.fr6, text='ENTER', font=fonte1, bg=cinza2, relief=RAISED, border=8, command=self.jogar)
         self.bt_jogar.bind('<Return>', self.jogar2)
+        self.bt_jogar.focus_force()
         self.bt_jogar.pack()
 
-        self.lb_erro = Label(self.fr6, text='KKKKKKKKKKKKKKK', font=fonte4, bg=cinza1, fg=vermelho)
+        self.lb_erro = Label(self.fr6, text='', font=fonte4, bg=cinza1, fg=vermelho)
         self.lb_erro.pack()
 
-        def jogar(self):
-            pass
+    def jogar(self):
+        try:
+            num = int(self.num.get())
+            escolha = self.escolha.get()
+            num_robo = random.randrange(0,10)
 
-        def jogar2(self, event):
-            pass
+            if num == 0:
+                self.lb_img1['image'] = self.img0
+                self.lb_erro['text'] = ''
+            elif num == 1:
+                self.lb_img1['image'] = self.img1
+                self.lb_erro['text'] = ''
+            elif num == 2:
+                self.lb_img1['image'] = self.img2
+                self.lb_erro['text'] = ''
+            elif num == 3:
+                self.lb_img1['image'] = self.img3
+                self.lb_erro['text'] = ''
+            elif num == 4:
+                self.lb_img1['image'] = self.img4
+                self.lb_erro['text'] = ''
+            elif num == 5:
+                self.lb_img1['image'] = self.img5
+                self.lb_erro['text'] = ''
+            elif num == 6:
+                self.lb_img1['image'] = self.img6
+                self.lb_erro['text'] = ''
+            elif num == 7:
+                self.lb_img1['image'] = self.img7
+                self.lb_erro['text'] = ''
+            elif num == 8:
+                self.lb_img1['image'] = self.img8
+                self.lb_erro['text'] = ''
+            elif num == 9:
+                self.lb_img1['image'] = self.img9
+                self.lb_erro['text'] = ''
+            elif num == 10:
+                self.lb_img1['image'] = self.img10
+                self.lb_erro['text'] = ''
+            else:
+                self.lb_erro['text'] = 'ERRO! ESCOLHA PAR OU ÍMPAR E DIGITE ENTRE 0 A 10'
+
+
+
+
+            if num >= 0 and num <= 10:
+                par_impar = calcular_par_impar(num, num_robo)
+                if par_impar.lower() == 'par':
+                    self.lb_result['text'] = 'DEU PAR'
+                elif par_impar.lower() == 'impar':
+                    self.lb_result['text'] = 'DEU ÍMPAR'
+
+
+
+        except:
+            self.lb_erro['text'] = 'ERRO! ESCOLHA PAR OU ÍMPAR E DIGITE ENTRE 0 A 10'
+                
+            
+
+    def jogar2(self, event):
+        pass
 
 
 
