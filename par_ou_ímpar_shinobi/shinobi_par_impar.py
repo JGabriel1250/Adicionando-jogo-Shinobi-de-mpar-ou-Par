@@ -92,52 +92,80 @@ class janela():
             escolha = self.escolha.get()
             num_robo = random.randrange(0,10)
 
-            if num == 0:
-                self.lb_img1['image'] = self.img0
-                self.lb_erro['text'] = ''
-            elif num == 1:
-                self.lb_img1['image'] = self.img1
-                self.lb_erro['text'] = ''
-            elif num == 2:
-                self.lb_img1['image'] = self.img2
-                self.lb_erro['text'] = ''
-            elif num == 3:
-                self.lb_img1['image'] = self.img3
-                self.lb_erro['text'] = ''
-            elif num == 4:
-                self.lb_img1['image'] = self.img4
-                self.lb_erro['text'] = ''
-            elif num == 5:
-                self.lb_img1['image'] = self.img5
-                self.lb_erro['text'] = ''
-            elif num == 6:
-                self.lb_img1['image'] = self.img6
-                self.lb_erro['text'] = ''
-            elif num == 7:
-                self.lb_img1['image'] = self.img7
-                self.lb_erro['text'] = ''
-            elif num == 8:
-                self.lb_img1['image'] = self.img8
-                self.lb_erro['text'] = ''
-            elif num == 9:
-                self.lb_img1['image'] = self.img9
-                self.lb_erro['text'] = ''
-            elif num == 10:
-                self.lb_img1['image'] = self.img10
-                self.lb_erro['text'] = ''
+
+            if escolha == 'par' or escolha == 'impar':
+                if num >= 0 and num <= 10:
+                    if num == 0:
+                        self.lb_img1['image'] = self.img0
+                        self.lb_erro['text'] = ''
+                    elif num == 1:
+                        self.lb_img1['image'] = self.img1
+                        self.lb_erro['text'] = ''
+                    elif num == 2:
+                        self.lb_img1['image'] = self.img2
+                        self.lb_erro['text'] = ''
+                    elif num == 3:
+                        self.lb_img1['image'] = self.img3
+                        self.lb_erro['text'] = ''
+                    elif num == 4:
+                        self.lb_img1['image'] = self.img4
+                        self.lb_erro['text'] = ''
+                    elif num == 5:
+                        self.lb_img1['image'] = self.img5
+                        self.lb_erro['text'] = ''
+                    elif num == 6:
+                        self.lb_img1['image'] = self.img6
+                        self.lb_erro['text'] = ''
+                    elif num == 7:
+                        self.lb_img1['image'] = self.img7
+                        self.lb_erro['text'] = ''
+                    elif num == 8:
+                        self.lb_img1['image'] = self.img8
+                        self.lb_erro['text'] = ''
+                    elif num == 9:
+                        self.lb_img1['image'] = self.img9
+                        self.lb_erro['text'] = ''
+                    elif num == 10:
+                        self.lb_img1['image'] = self.img10
+                        self.lb_erro['text'] = ''
+                    
+
+                    if num_robo == 0:
+                        self.lb_img2['image'] = self.img0
+                    elif num_robo == 1:
+                        self.lb_img2['image'] = self.img1
+                    elif num_robo == 2:
+                        self.lb_img2['image'] = self.img2
+                    elif num_robo == 3:
+                        self.lb_img2['image'] = self.img3
+                    elif num_robo == 4:
+                        self.lb_img2['image'] = self.img4
+                    elif num_robo == 5:
+                        self.lb_img2['image'] = self.img5
+                    elif num_robo == 6:
+                        self.lb_img2['image'] = self.img6
+                    elif num_robo == 7:
+                        self.lb_img2['image'] = self.img7
+                    elif num_robo == 8:
+                        self.lb_img2['image'] = self.img8
+                    elif num_robo == 9:
+                        self.lb_img2['image'] = self.img9
+                    elif num_robo == 10:
+                        self.lb_img2['image'] = self.img10
+
+
+                
+                    par_impar = calcular_par_impar(num, num_robo)
+                    if par_impar == 'Par':
+                        self.lb_result['text'] = 'DEU PAR'
+                    elif par_impar == 'Ímpar':
+                        self.lb_result['text'] = 'DEU ÍMPAR'
+
+                else:
+                    self.lb_erro['text'] = 'ERRO! ESCOLHA PAR OU ÍMPAR E DIGITE ENTRE 0 A 10'
+
             else:
                 self.lb_erro['text'] = 'ERRO! ESCOLHA PAR OU ÍMPAR E DIGITE ENTRE 0 A 10'
-
-
-
-
-            if num >= 0 and num <= 10:
-                par_impar = calcular_par_impar(num, num_robo)
-                if par_impar.lower() == 'par':
-                    self.lb_result['text'] = 'DEU PAR'
-                elif par_impar.lower() == 'impar':
-                    self.lb_result['text'] = 'DEU ÍMPAR'
-
 
 
         except:
